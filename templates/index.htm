@@ -1,0 +1,78 @@
+{% extends "base.htm" %}
+{% block title %}
+<title>Yossef</title>
+{% endblock %}
+{% block body %}
+<h3 class="form--header">Upload An Image To Be Encrypted 😊</h3>
+<div class="main_form">
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+          {% for message in messages %}  
+          <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <p>{{ message }}</p>  
+          </div>
+          {% endfor %}  
+    {% endif %}  
+ {% endwith %}  
+    <div class="main_form--flex">
+    <div class="main_form--image">
+        {% if filename %}  
+        <img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="">
+
+    {% else %}  
+    <img src="{{ url_for('static' , filename='upload.png') }}" alt="">
+
+    {% endif %}
+
+    </div>
+
+    <div class="main_form--form">
+        <form method="POST" action="/encryption" enctype="multipart/form-data">
+            <div class="image--uploader"><i class="fas fa-file"></i>Upload File</div>
+            <input class="hidden-input" type="file" name="file" >
+            <div class="button--container">
+            <button type="submit">Encrypt</button>
+            
+            <button class="decrypt" formaction="/decryption">Decrypt</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+
+const uploader = document.querySelector('.image--uploader');
+    const hidden = document.querySelector('.hidden-input');
+    uploader.addEventListener('click', () => {
+        hidden.click();
+    });
+    hidden.addEventListener('change', () => {
+        if(hidden.value.length>0){
+        document.querySelector('.image--uploader').style.backgroundColor = 'Green';
+        document.querySelector('.image--uploader').textContent = 'Thank You';
+        }
+        }
+            
+    );
+
+
+
+//     const decrypt = document.querySelector('.decrypt');
+//     decrypt.addEventListener('click', (e) => {
+// e.preventDefault();
+// console.log(hidden.files[0])
+// const file = new FormData()
+// file.append('file', hidden.files[0])
+// fetch("/decryption",
+// {
+   
+//     method: "POST",
+//     body: file
+// })
+//     });
+    
+
+
+</script>
+{% endblock %}

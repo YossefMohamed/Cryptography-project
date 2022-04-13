@@ -1,0 +1,171 @@
+body{
+    background-image: url("../../static/image.jpg");
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image_container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(79, 2, 66) , rgb(216, 114, 247));
+
+    z-index: -5;
+    opacity: 0.6;
+}
+
+.main_form{
+    position: absolute;
+    z-index: 2;
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5);
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 20px;
+    
+}
+
+.main_form--flex{
+    display: flex;
+    height: 100%;
+   
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.form--header{
+    text-align: center;
+    color:white ;
+    width: fit-content;
+    margin: auto;
+    padding: 15px 10px;
+    background-color:rgb(114, 0, 93) ;
+    border-radius: 10px;
+}
+.main_form--image{
+    width:45%;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+.main_form--image img{
+    width: 100%;
+}
+
+
+.main_form--form{
+    width: 45%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main_form--form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+
+.button--container{
+    width: 60%;
+    display: flex;
+    margin: 50px 0;
+    justify-content: space-between;
+    align-items: space-between;
+}
+.button--container button{
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(72, 151, 6);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    border: 2px solid rgb(72, 151, 6);
+}
+
+.button--container button:hover{
+    background-color: white;
+    color: black;
+}
+
+.button--container .decrypt{
+    background-color: rgb(226, 30, 30);
+    border: 2px solid rgb(226, 30, 30);
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image--uploader{
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ce4f4c;
+    color: white;
+    padding: 10px 15px;
+    width: 60%;
+    display: flex;
+    justify-content:space-around;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+
+.alert {
+    padding: 20px;
+    margin: 0 0 20px;
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+@media only screen and (max-width: 990px) {
+
+    .main_form--form{
+        width: 100%;
+    }
+   
+    .main_form--flex{
+        flex-direction: column;
+        padding: 0px;
+
+    }
+    
+    
+}
