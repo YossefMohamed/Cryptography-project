@@ -51,7 +51,3 @@ def decryption():
         flash("Allowed image types are -> png, jpg, jpeg, gif")
         return render_template("index.htm")
 
-
-
-if __name__ == "__main__":
-    app.run(debug=True) # debug=True
