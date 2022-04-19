@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import os
+from skimage import color
+from skimage import io
+from PIL import Image
+
+
+
 app = Flask(__name__)
 
 
@@ -27,11 +33,16 @@ def encryption():
         return render_template("index.htm")
     if file and allowed_file(file.filename):
         filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgPath = os.path.join(app.config['UPLOAD_FOLDER'], filename) # get the path of the image
+        file.save(imgPath)
+        img = Image.open(imgPath)
+        imgGray = img.convert('L')
+        imgGray.save(imgPath)
         return render_template("index.htm",filename=filename)
     else:
         flash("Allowed image types are -> png, jpg, jpeg, gif")
         return render_template("index.htm")
+
 
 
 @app.route('/decryption',methods=['POST'])
@@ -45,9 +56,17 @@ def decryption():
         return render_template("index.htm")
     if file and allowed_file(file.filename):
         filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        imgPath = os.path.join(app.config['UPLOAD_FOLDER'], filename) # get the path of the image
+        file.save(imgPath)
+        print(filo)
+        img = Image.open(imgPath)
+        imgGray = img.convert('L')
+        imgGray.save(imgPath)
         return render_template("index.htm",filename=filename)
     else:
         flash("Allowed image types are -> png, jpg, jpeg, gif")
         return render_template("index.htm")
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
