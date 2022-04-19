@@ -1,37 +1,28 @@
+
 # Cryptography-project
 
 
 
 ## to run the app
-<ul>
-  <li> Create virtual environments and Activate it
-    <ul>
-        <li>
-          py -m venv env
+ Create virtual environments and Activate it
+   
+   
+    py -m venv env
 
-      </li>  <li>
-         .\env\Scripts\activate
+    .\env\Scripts\activate
+ 
+install the requirements.txt by : 
 
+      pip install -r requirements.txt
+      
+Set the starter flask app  :
 
-      </li>
-      </li>
+      set FLASK_APP=application.py 
+
+      
+Run the APP by : 
     
-    <li>
+    py application.py
       
-      install the requirements.txt by : <code>  pip install -r requirements.txt </code>
-      
-  </li>    
-    <li>
-      
-      Set the starter flask app  : <code>  set FLASK_APP=application.py 
- </code>
-      
-  </li> 
-    <li>
-      
-      Run the APP by : <code>  py application.py </code>
-      
-  </li>
-    </ul>
-  
-  </ul>
+
+
