@@ -1,5 +1,5 @@
 {% extends "base.htm" %} {% block title %}
-<title>Yossef</title>
+<title>Project</title>
 {% endblock %} {% block body %}
 <h3 class="form--header">Upload An Image To Be Encrypted 😊</h3>
 <div class="main_form">
@@ -39,13 +39,20 @@
         <div class="button--container">
           <button type="submit" id="Encrypt">Encrypt</button>
           <button class="decrypt" formaction="/decryption">Decrypt</button>
-          <button class="download">
-            <a
-              href="{{ url_for('static', filename='uploads/' ~ filename) }}"
-              download
-              >Download</a
-            >
-          </button>
+          <a
+            href="{{ url_for('static', filename='uploads/' ~ filename) }}"
+            download
+            target="_blank"
+            style="
+              padding: 10px 5px;
+              margin-left: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              text-decoration: none;
+              color: #000;
+            "
+            >Download</a
+          >
         </div>
       </form>
     </div>
@@ -66,7 +73,7 @@
     if (hidden.value.length > 0) {
       document.querySelector(".image--uploader").style.backgroundColor =
         "Green";
-      document.querySelector(".image--uploader").textContent = "Thank You";
+      document.querySelector(".image--uploader").textContent = "File Selected";
     }
     var image = document.getElementById("output");
     image.src = URL.createObjectURL(event.target.files[0]);
