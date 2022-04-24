@@ -24,5 +24,9 @@ Run the APP by :
     
     py application.py
       
+      
+      
+# App link
 
+ https://crypto-project-app.herokuapp.com/
 
