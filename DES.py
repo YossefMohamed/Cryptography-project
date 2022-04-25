@@ -15,7 +15,7 @@ while True:
 
     tdes_key = DES3.adjust_key_parity(key_hash)
     
-    cipher = DES3.new(tdes_key, DES3.MODE_EAX, nonce=b'0')
+    cipher = DES3.new(tdes_key, DES3.MODE_CTR, nonce=b'0')
 
     with open(image_path, 'rb') as input_image:
         image_bytes = input_image.read()

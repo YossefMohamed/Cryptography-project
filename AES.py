@@ -13,7 +13,7 @@ while True:
     
     key_hash = md5(key.encode('ascii')).digest()
     
-    cipher = AES.new(key_hash, AES.MODE_EAX, nonce=b'0')
+    cipher = AES.new(key_hash, AES.MODE_GCM, nonce=b'0')
 
     with open(image_path, 'rb') as input_image:
         image_bytes = input_image.read()
